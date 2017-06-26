@@ -580,7 +580,7 @@ func (s *Shell) multiChoice(options []string, text string, init []int, multiResu
 
 func buildOptionsStrings(options []string, selected []int, index int) []string {
 	var strs []string
-	symbol := " ❯"
+	symbol := " ➜"
 	if runtime.GOOS == "windows" {
 		symbol = " >"
 	}
@@ -595,8 +595,8 @@ func buildOptionsStrings(options []string, selected []int, index int) []string {
 			}
 		}
 		if i == index {
-			cyan := color.New(color.FgCyan).Add(color.Bold).SprintFunc()
-			strs = append(strs, cyan(symbol+mark+opt))
+			green := color.New(color.FgGreen).Add(color.Bold).SprintFunc()
+			strs = append(strs, green(symbol+mark+opt))
 		} else {
 			strs = append(strs, "  "+mark+opt)
 		}
